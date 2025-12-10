@@ -1,0 +1,94 @@
+﻿/*user*/
+
+.User_Card {
+    display: flex;
+    flex-direction: column;
+    width: 380px;
+    text-decoration: none;
+    background-color: #f9fafb;
+    margin: 10px 10px 10px 0;
+    font-family: 'Arial', sans-serif;
+}
+
+/*Perfil*/
+.Profile {
+    width: 100%;
+    position: relative;
+}
+
+.Profile_Info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    padding-left: 20px;
+    background-color: #d1d9e6;
+    text-decoration: none;
+    cursor: alias;
+}
+
+    .Profile_Info img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .Profile_Info h3 {
+        color: black;
+        font-weight: bold;
+        font-size: 25px;
+    }
+
+/*Perfil Extra*/
+.Profile_Extra {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    background-color: #bcc8dd;
+    width: 100%;
+    z-index: 1;
+    cursor: pointer;
+}
+
+    .Profile_Extra a {
+        text-decoration: none;
+        color: black;
+        padding: 15px;
+        padding-left: 20px;
+    }
+
+        .Profile_Extra a:hover {
+            background-color: #d1d9e6;
+        }
+
+.Profile:hover .Profile_Extra {
+    display: flex;
+}
+
+/*profile options*/
+.Profile_Options {
+    display: flex;
+    flex-direction: column;
+}
+
+.Options {
+    display: flex;
+    padding: 20px;
+    text-decoration: none;
+}
+
+    .Options:hover {
+        background-color: #d4d4d4;
+    }
+
+    .Options p {
+        color: black;
+    }
+
+/*Responsividade*/
+@media (max-width: 1100px) {
+    .User_Card {
+        display: none;
+    }
+}

@@ -1,0 +1,165 @@
+﻿/*POST*/
+
+.Edit_Back {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Arial', sans-serif;
+    width: 100%;
+    max-width: 800px;
+    margin: 50px auto 50px auto;
+    text-decoration: none;
+}
+
+/*Edit Title*/
+
+.Edit_Title {
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    gap: 10px;
+}
+
+/*user input*/
+.Edit_Input {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+    .Edit_Input input {
+        padding-left: 0;
+        color: black;
+        padding: 15px;
+        border-radius: 5px;
+        background-color: transparent;
+        border: 1px solid lightgray;
+        outline: none;
+    }
+
+/*img info*/
+.Edit_Img {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: relative;
+    width: 100%;
+    margin: 20px 0 20px 0;
+}
+
+    .Edit_Img img {
+        height: 100%;
+        width: 100%;
+        border-radius: 5px;
+        object-fit: cover;
+    }
+
+    .Edit_Img button {
+        height: 35px;
+        width: 35px;
+        margin: 10px;
+        border-radius: 50%;
+        font-size: 20px;
+        position: absolute;
+        border: none;
+        cursor: pointer;
+    }
+
+/*img info*/
+.Edit_Info {
+    display: none;
+    flex-direction: column;
+    align-items: flex-end;
+    position: relative;
+    height: 400px;
+    width: 100%;
+    margin: 20px 0 20px 0;
+}
+
+.Edit_Info img {
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+    .Edit_Info button {
+        height: 35px;
+        width: 35px;
+        margin: 10px;
+        border-radius: 50%;
+        font-size: 20px;
+        position: absolute;
+        border: none;
+        cursor: pointer;
+    }
+
+/*Img Upload*/
+.Edit_Upload{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 400px;
+    width: 100%;
+    margin: 20px 0 20px 0;
+}
+
+    .Edit_Upload input {
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+        z-index: 2;
+        cursor: pointer;
+    }
+
+.Img_Text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #e6e6e6;
+    border-radius: 5px;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+}
+
+    .Img_Text p {
+        font-size: 25px;
+    }
+
+    .Img_Text span {
+        background-image: url(https://cdn-icons-png.flaticon.com/512/1091/1091916.png);
+        background-size: 40px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: whitesmoke;
+        height: 55px;
+        width: 55px;
+        border-radius: 50%;
+    }
+
+.Edit_Btns {
+    width: 100%;
+}
+
+    .Edit_Btns button {
+        width: 100%;
+        padding: 10px;
+        font-size: 20px;
+        border-radius: 5px;
+        background-color: #4D79FF;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+
+/*responsividade*/
+@media (max-width: 1000px) {
+    .info_updatePartial {
+        width: 100%;
+    }
+}

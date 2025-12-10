@@ -1,0 +1,167 @@
+﻿/*CENTER*/
+
+.center {
+    display: flex;
+    justify-content:center;
+}
+
+/*INFO*/
+
+.Site_Info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    width: 100%;
+    max-width: 800px;
+    margin:10px auto 10px auto;
+    font-family: 'Arial', sans-serif;
+}
+
+/*ORDER*/
+
+.Order {
+    width: 150px;
+    position: relative;
+}
+
+.Order_Buttton {
+    width: 100%;
+    padding: 10px;
+    background-color: #4d79ff;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+    border-radius: 0;
+    border: none;
+}
+
+.Dropdow {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    background-color: #d1d9e6;
+    width: 100%;
+    top: 0%;
+    z-index: 1;
+}
+
+    .Dropdow button {
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 0;
+        background-color: #d1d9e6;
+        border: none;
+    }
+
+        .Dropdow button:hover {
+            background-color: #4d79ff;
+            color:white;
+        }
+
+.Order:hover .Dropdow {
+    display: flex;
+}
+
+/*POST*/
+
+.Post_Card {
+    width: 100%;
+    background-color: #F9FAFB;
+    padding: 15px;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+/*user info*/
+.User_Info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+    .User_Info img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit:cover;
+    }
+
+    .User_Info h3 {
+        color: black;
+    }
+
+    .User_Info p {
+        margin-bottom: auto;
+        margin-left: auto;
+        color: gray;
+    }
+
+/*text info*/
+.Text_Info {
+    display: flex;
+    flex-direction: column;
+}
+
+    .Text_Info h3 {
+        font-size: 30px;
+        width: 80%;
+        color: black;
+        word-break: break-all;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+    }
+
+    .Text_Info p {
+        font-size: 20px;
+        width: 100%;
+        color: gray;
+        word-break: break-all;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+    }
+
+.Img_Info {
+    display: flex;
+    height: 500px;
+    width: 100%;
+    padding-top:10px;
+}
+
+    .Img_Info img {
+        height: 100%;
+        width: 100%;
+        border-radius:5px;
+        object-fit: cover;
+    }
+
+/*Post Not Found*/
+
+.No_Posts {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 500px;
+    width:100%;
+    font-size: 30px;
+    cursor:default;
+}
+
+    .No_Posts span {
+        height: 50px;
+        width: 50px;
+        background-image: url(https://static.thenounproject.com/png/4381019-200.png);
+        background-size:contain;
+    }
+
+/*Responsividade*/
+@media (max-width: 1000px) {
+    .Site_Info {
+        align-items: center;
+    }
+}

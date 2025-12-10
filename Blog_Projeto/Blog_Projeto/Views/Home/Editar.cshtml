@@ -1,0 +1,69 @@
+﻿@model DadosPost
+
+@{
+    ViewData["Title"] = "Update Post";
+}
+
+<link href="~/css/Home/Editar.css" rel="stylesheet" />
+
+<form class="Edit_Back" asp-action="Editar" method="post" enctype="multipart/form-data">
+    <div class="Edit_Title">
+        <h3>@Model.Titulo</h3>
+        <p>@Model.Descriçao</p>
+        <hr>
+    </div>
+    <div class="Edit_Input">
+        <input type="text" placeholder="Digite algo Para o Titulo" asp-for="Titulo" autocomplete="off" />
+        <input type="text" placeholder="Digite algo Para a Descriçao" asp-for="Descriçao" autocomplete="off" />
+    </div>
+
+    @if (Model.Foto == "deleted")
+    {
+        <!--upload de imagen-->
+        <div class="Edit_Upload">
+            <input type="file" name="Foto" class="fileInput" />
+            <div class="Img_Text">
+                <p>Adicionar Foto</p>
+                <span></span>
+            </div>
+        </div>
+        <div class="Edit_Info">
+            <input type="hidden" name="id" value="@Model.Id" />
+            <img class="imgPreview" src="" alt="Imagem do arquivo carregado" />
+            <button type="button" class="closeBtn">X</button>
+        </div>
+        <div class="Edit_Btns">
+            <button type="submit">Upload</button>
+        </div>
+    }
+    else
+    {
+        <!--imagen do banco-->
+        <div class="Edit_Img">
+            <input type="hidden" name="id" value="@Model.Id" />
+            <input class="deleteInput" disabled="disabled" type="hidden" name="delete" value="deleteimg" />            
+            <img src="@Model.Foto" alt="Imagem Do Post" />
+            <button type="button" class="closeBtnImg">X</button>
+        </div>
+
+        <!--upload de imagen-->
+        <div class="Edit_Upload" style="display:none;">
+            <input type="file" name="Foto" class="fileInput" />
+            <div class="Img_Text">
+                <p>Adicionar Foto</p>
+                <span></span>
+            </div>
+        </div>
+        <div class="Edit_Info">
+            <input type="hidden" name="id" value="@Model.Id" />
+            <img class="imgPreview" src="" alt="Imagem do arquivo carregado" />
+            <button type="button" class="closeBtn">X</button>
+        </div>
+        <div class="Edit_Btns">
+            <button type="submit">Upload</button>
+        </div>
+    }
+</form>
+
+<!--Refatorar js Depois-->
+<script src="~/js/Account/Editar/InputPreview.js"></script>

@@ -1,0 +1,71 @@
+﻿@using Blog_Projeto.Models.dto
+@model IEnumerable<CompletePost_dto>
+@{
+    ViewData["Title"] = "Search Page";
+    bool active = (bool)ViewData["active"];
+}
+
+<link href="~/css/Home/Index.css" rel="stylesheet" />
+
+<div class="Site_Info">
+    <!--TYPE-->
+    <form asp-action="Search" method="get" class="Order">
+        <button class="Order_Buttton" type="button">Type</button>
+        <div class="Dropdow">
+            <input type="hidden" name="Procura" value="@Context.Request.Query["Procura"]" />
+            <button type="submit" name="Type" value="Posts">Posts</button>
+            <button type="submit" name="Type" value="User">Profiles</button>
+        </div>
+    </form>
+
+    <!--INFORMAÇOES-->
+    @if (Model.Any())
+    {
+        <!--CARDS-->
+        if (active == true)
+        {
+            @foreach (var item in Model)
+            {
+                <a asp-action="view" asp-route-id="@item.Id" class="Post_Card">
+                    <div class="User_Info">
+                        <img src="@item.UserPhoto" alt="Foto do Autor" />
+                        <h3>@item.UserName</h3>
+                    </div>
+                    <div class="Text_Info">
+                        <h3>@item.Titulo</h3>
+                        <p>@item.Descriçao</p>
+                    </div>
+                    @if (item.Foto == "deleted")
+                    {
+                    }
+                    else
+                    {
+                        <div class="Img_Info">
+                            <img src="@item.Foto" alt="Imagem do Post" />
+                        </div>
+                    }
+                </a>
+            }
+        }
+        else
+        {
+            @foreach (var item in Model)
+            {
+                <a asp-controller="Profile" asp-action="UserPage" asp-route-Owner="@item.PostOwner" class="Post_Card">
+                    <div class="User_Info">
+                        <img src="@item.UserPhoto" alt="Foto do Autor" style="width:80px; height:80px;" />
+                        <h3 style="font-size:30px;">@item.UserName</h3>
+                    </div>
+                </a>
+            }
+        }
+    }
+    else
+    {
+        <!--SEM POSTS-->
+        <div class="No_Posts">
+            <p>No Data</p>
+            <span></span>
+        </div>
+    }
+</div>

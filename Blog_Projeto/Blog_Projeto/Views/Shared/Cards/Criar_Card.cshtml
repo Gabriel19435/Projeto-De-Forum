@@ -1,0 +1,44 @@
+﻿@using System.Security.Claims;
+@model DadosPost
+
+<link rel="stylesheet" href="~/css/Shared/Criar_Card.css" asp-append-version="true" />
+
+<div class="info_updatePartial">
+    <button id="Post_BntOpen">
+        Create
+        <img src="https://cdn-icons-png.flaticon.com/512/126/126477.png" alt="">
+    </button>
+</div>
+<div class="Post_CardPartial">
+    <div class="Titulo">
+        <h3>Create New Post</h3>
+        <button type="button" id="Post_Bnt">X</button>
+    </div>
+    <form asp-action="Criar" method="post" enctype="multipart/form-data">
+        <div class="User_InputPartial">
+            <input type="hidden" name="UserId" value="@User.FindFirst("ProfileIdentificator").Value" />
+            <input id="input1" type="text" placeholder="Type Something For the Title" asp-for="Titulo" autocomplete="off" />
+            <input id="input2" type="text" placeholder="Type Something for The Description" asp-for="Descriçao" autocomplete="off" />
+        </div>
+
+        <div class="Img_InfoPartial">
+            <img id="imgPreview" src="" alt="Imagem do arquivo carregado" />
+            <button type="button" id="closeBtn">X</button>
+        </div>
+
+        <div class="Img_UploadPartial">
+            <input type="file" name="Foto" id="fileInput" />
+            <div class="Img_Text">
+                <p>Upload a Photo</p>
+                <span></span>
+            </div>
+        </div>
+
+        <div class="Bnt_Send">
+            <button type="submit">Upload</button>
+        </div>
+    </form>
+</div>
+
+<script src="~/js/Account/Criar_Card/UploadPreview.js"></script>
+<script src="~/js/Account/Criar_Card/Btn_Open.js"></script>

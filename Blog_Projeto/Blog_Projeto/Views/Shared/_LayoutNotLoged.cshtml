@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Projeto_Teste</title>
+    <link rel="stylesheet" href="~/css/Layout/Nav.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/Layout/Center.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/Layout/Footer.css" asp-append-version="true" />
+</head>
+<body>
+    <style>
+        /*info update*/
+        .info_updateLogin {
+            display: flex;
+            width: 120px;
+        }
+        
+        .info_updateLogin a {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            width: 100%;
+            text-align: center;
+            background-color: #4D79FF;
+            border: none;
+            padding: 8px;
+            border-radius: 10px;
+            gap: 5px;
+            cursor: pointer;
+            font-size: 19px;
+        }
+    </style>
+
+    <nav>
+        <div class="logo">
+            <a href="#">
+                <p>Forum</p>
+                <p>-</p>
+                <P>Descrition</p>
+            </a>
+        </div>
+        <div class="space"></div>
+        <div class="nav_top">
+            <div class="bnt_link">
+                <a asp-controller="Home" asp-action="Index">Home</a>
+                <a asp-controller="Profile" asp-action="Login">About-Us</a>
+                <a asp-controller="Profile" asp-action="Login">Privacy</a>
+                <a asp-controller="Profile" asp-action="Login">Config</a>
+            </div>
+            <div class="info_update" style="margin-left:auto;">
+                <div class="info_updateLogin">
+                    <a asp-controller="Profile" asp-action="Login">Login</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="center">
+        @RenderBody()
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column-about">
+                <h2>Forum</h2>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Nemo ex similique incidunt sequi ratione iste ut exercitationem 
+                    praesentium eaque iusto eius quibusdam deleniti, ipsum consequuntur 
+                    nulla itaque dolores obcaecati consectetur!
+                </p>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Shop</h3>
+                <ul>
+                    <li><a href="#">Aliexpress</a></li>
+                    <li><a href="#">Amazon</a></li>
+                    <li><a href="#">Market</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="~/js/Nav_Follow.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

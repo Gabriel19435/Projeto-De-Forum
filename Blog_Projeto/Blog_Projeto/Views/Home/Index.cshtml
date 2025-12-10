@@ -1,0 +1,62 @@
+﻿@using Blog_Projeto.Models.dto
+@model IEnumerable<CompletePost_dto>
+
+@{
+    ViewData["Title"] = "Home Page";
+    if (!User.Identity.IsAuthenticated)
+    {
+        Layout = "_LayoutNotLoged";
+    }
+}
+
+<link href="~/css/Home/Index.css" rel="stylesheet" />
+<!--INFORMAÇOES-->
+<div class="Site_Info">
+    <!--ORDEM-->
+    <form class="Order" asp-action="Index" method="get">
+        <button class="Order_Buttton" type="button">Ordem</button>
+        <div class="Dropdow">
+            <button type="submit" name="ordem" value="decres">DeCrescente</button>
+            <button type="submit" name="ordem" value="cres">Crescente</button>
+        </div>
+    </form>
+
+    @if (Model.Any())
+    {
+        @foreach (var item in Model)
+        {
+            <!--POSTAGEM-->
+            <a class="Post_Card" asp-action="View" asp-route-id="@item.Id">
+                <div class="User_Info">
+                    <img src="@item.UserPhoto" alt="Author Profile Pic" />
+                    <h3>@item.UserName</h3>
+                    <p>@item.Data.ToString("dd/MM/yyyy")</p>
+                </div>
+                <div class="Text_Info">
+                    <h3>@item.Titulo</h3>
+                    <p>@item.Descriçao</p>
+                </div>
+                @if (item.Foto == "deleted")
+                {
+                }
+                else
+                {
+                    <div class="Img_Info">
+                        <img src="@item.Foto" alt="Imagem do Post" />
+                    </div>
+                }
+            </a>
+        }
+    }
+    else
+    {
+        <!--SEM POSTS-->
+        <div class="No_Posts">
+            <p>No Data</p>
+            <span></span>
+        </div>
+    }
+</div>
+
+<!--PERFIL LATERAL-->
+<partial name="/Views/Shared/Cards/User_Card.cshtml" model="new DadosPost{ }"/>

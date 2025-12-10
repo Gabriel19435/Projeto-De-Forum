@@ -1,0 +1,85 @@
+﻿@model IEnumerable<DadosPost>
+@{
+    ViewData["Title"] = "User Page";
+
+    string UserPhoto = (string)ViewData["UserPhoto"];
+    string UserName = (string)ViewData["UserName"];
+    DateTime Data = (DateTime)ViewData["Data"];
+    string NumPosts = (string)ViewData["NumPosts"];
+    string UserDesc = (string)ViewData["UserDesc"];
+    int Owner = (int)ViewData["Owner"];
+}
+
+<link href="~/css/Account/UserPage.css" rel="stylesheet" />
+<div class="UserPage_Info">
+    <!--USER-->
+    <div class="UserPage_User">
+        <img src="@UserPhoto" alt="">
+        <h3>@UserName</h3>
+    </div>
+    <!--LINKS-->
+    <div class="UserPage_Links">
+        <p id="Select1" href="">Posts</p>
+        <p id="Select2" href="">Info</p>
+    </div>
+    <!--POSTAGEM-->
+    <div class="UserPage_Post">
+        @if (Model.Any())
+        {
+            foreach (var item in Model)
+            {
+                if (item.Foto == "deleted")
+                {
+                    <a asp-controller="Home" asp-action="View" asp-route-id="@item.Id" class="Post_Card" style="background-color:white; outline:1px solid lightgray; border-radius:10px; padding:10px;">
+                        <div class="Text_Info">
+                            <h3>@item.Titulo</h3>
+                            <p>@item.Descriçao</p>
+                        </div>
+                    </a>
+                }
+                else
+                {
+                    <a asp-controller="Home" asp-action="View" asp-route-id="@item.Id" class="Post_Card">
+                        <div class="Img_Info">
+                            <img src="@item.Foto" alt="Imagem do Post" />
+                        </div>
+                        <div class="Text_Info">
+                            <h3>@item.Titulo</h3>
+                            <p>@item.Descriçao</p>
+                        </div>
+                    </a>
+                }
+            }
+        }
+    </div>
+    <!--INFO USER-->
+    <div class="UserPage_Descrition">
+        <div>
+            <h3>Account Creation</h3>
+            <p>@Data.ToString()</p>
+        </div>
+        @if (UserDesc != "Null")
+        {
+            <div>
+                <h3>Descrition</h3>
+                <p>@UserDesc</p>
+            </div>
+        }
+        <div>
+            <h3>Number of Posts</h3>
+            <p>@NumPosts</p>
+        </div>
+        @if (User.Identity.IsAuthenticated && Convert.ToInt32(User.FindFirst("ProfileIdentificator").Value) == Owner)
+        {
+            <div>
+                <h3>Delete This Account</h3>
+                <a asp-controller="Profile" asp-action="Remove" 
+                asp-route-id="@User.FindFirst("ProfileIdentificator").Value"
+                style="color:red; text-decoration:none;"
+                >Delete?</a>
+            </div>
+        }
+    </div>
+</div>
+
+<script src="~/js/Account/UserPage/TrocaDePagina.js"></script>

@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Blog Projeto</title>
+    <link rel="stylesheet" href="~/css/Layout/Nav.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/Layout/Center.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/Layout/Footer.css" asp-append-version="true" />
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <a href="#">
+                <p>Forum</p>
+                <p>-</p>
+                <P>Descrition</p>
+            </a>
+        </div>
+        <div class="space"></div>
+        <div class="nav_top">
+            <div class="bnt_link">
+                <a asp-controller="Home" asp-action="Index">Home</a>
+                <a href="#">About-Us</a>
+                <a href="#">Privacy</a>
+                <a href="#">Config</a>
+            </div>
+            <div class="info_input">
+                <form method="get" asp-controller="Home" asp-action="Search">
+                    <input type="text" name="Procura" value="@Context.Request.Query["Procura"]" placeholder="Search" autocomplete="off" >
+                    <button type="submit">
+                        <img src="https://cdn-icons-png.flaticon.com/512/54/54481.png" alt="">
+                    </button>
+                </form>
+            </div>
+            <div class="info_update">
+                <partial name="/Views/Shared/Cards/Criar_Card.cshtml" model="new DadosPost{}"/>
+            </div>
+        </div>
+    </nav>
+
+    <main class="center">
+        @RenderBody()
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column-about">
+                <h2>Forum</h2>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Nemo ex similique incidunt sequi ratione iste ut exercitationem 
+                    praesentium eaque iusto eius quibusdam deleniti, ipsum consequuntur 
+                    nulla itaque dolores obcaecati consectetur!
+                </p>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Shop</h3>
+                <ul>
+                    <li><a href="#">Aliexpress</a></li>
+                    <li><a href="#">Amazon</a></li>
+                    <li><a href="#">Market</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="~/js/Account/_Layout/Nav_Follow.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

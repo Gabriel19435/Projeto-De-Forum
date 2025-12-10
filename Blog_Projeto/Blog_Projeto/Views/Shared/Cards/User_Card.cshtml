@@ -1,0 +1,78 @@
+﻿@using System.Security.Claims;
+@model DadosPost
+
+<link href="~/css/Shared/User_Card.css" rel="stylesheet" />
+
+<div class="User_Card">
+    @if (User.Identity.IsAuthenticated)
+    {
+        <!--perfil-->
+        <div class="Profile">
+            <a asp-controller="Profile" asp-action="UserPage" asp-route-Owner="@User.FindFirst("ProfileIdentificator").Value" class="Profile_Info">
+                <img src="@User.FindFirst("ProfilePhoto").Value" alt="Foto do Autor" />
+                <h3>@User.Identity.Name</h3>
+            </a>
+            <div class="Profile_Extra">
+                <a asp-controller="Profile" asp-action="ProfileConfig" asp-route-id="@User.FindFirst("ProfileIdentificator").Value">Account Configuration</a>
+                <a asp-controller="Profile" asp-action="Login">Change Account</a>
+                <a asp-controller="Profile" asp-action="Logout">Logout</a>
+            </div>
+        </div>
+        <!--opcoes-->
+        <div class="Profile_Options">
+            <a href="#" class="Options">
+                <p>History</p>
+            </a>
+            <a href="#" class="Options">
+                <p>See Later</p>
+            </a>
+            <a href="#" class="Options">
+                <p>Playlist</p>
+            </a>
+            <a href="#" class="Options">
+                <p>Likes</p>
+            </a>
+            <hr />
+            <a href="#" class="Options">
+                <p>Site Configuration</p>
+            </a>
+            <a href="#" class="Options">
+                <p>Give Your Feedback</p>
+            </a>
+            <a href="#" class="Options">
+                <p>Help-</p>
+            </a>
+        </div>
+    }
+    else
+    {
+        <!--perfil Login-->
+        <div class="Profile">
+            <a asp-controller="Profile" asp-action="Login" class="Profile_Info" style="justify-content:center; cursor:pointer;">
+                <h3 style="color:black; font-size:25px;">Login</h3>
+            </a>
+        </div>
+        <!--opcoes-->
+        <div class="Profile_Options" style="padding:20px; gap:10px;">
+            <h3>Hey there, welcome back!</h3>
+            <p>
+                Log in to stay connected with your friends, explore the latest
+                updates, and keep your profile fresh.
+            </p>
+            <h3>Why log in?</h3>
+            <ul>
+                <li style="margin-left:25px;">Stay updated with posts, stories, and all the latest trends.</li>
+                <li style="margin-left:25px;">Connect with friends and start new conversations.</li>
+                <li style="margin-left:25px;">Personalize your feed and share your best moments.</li>
+            </ul>
+            <h3>Already have an account?</h3>
+            <p>
+                Just enter your details below and jump back into the action!
+                <hr />
+                Don’t have an account?
+                <a asp-controller="Profile" asp-action="Register">[Sign up here]</a>
+                and join today!
+            </p>
+        </div>
+    }
+</div>

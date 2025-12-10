@@ -1,0 +1,105 @@
+﻿.center {
+    display: flex;
+    flex-direction:column;
+    background-color: #f9fafb;
+}
+
+.Register_Nav {
+    display: flex;
+    max-width: 900px;
+    margin:auto;
+    gap: 150px;
+    font-family: "Roboto", sans-serif;
+}
+
+/*logo*/
+
+.Site_Logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .Site_Logo a {
+        display: flex;
+        justify-content: center;
+        cursor: pointer;
+        color: black;
+        text-decoration: none;
+        background-color: #D1D9E6;
+        box-shadow: 7px 7px rgba(255, 255, 255, 0.900);
+        border-radius: 5px;
+        padding: 5px;
+    }
+
+    .Site_Logo p {
+        font-size: 40px;
+        color: black;
+        font-family: "Libre Franklin", sans-serif;
+    }
+
+/*Login Background*/
+
+.Register_Back {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    gap: 10px;
+    padding: 15px;
+    border-radius: 10px;
+    width: 350px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.200);
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+}
+
+/*Login inputs*/
+
+.Register_Input {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+    .Register_Input input {
+        border-radius: 5px;
+        border: 1px lightgray solid;
+        padding: 15px;
+    }
+
+#Confirm {
+    display: none;
+    background-color: rgba(255, 0, 0, 0.100);
+    border: 1px red solid;
+}
+
+/*Login btns*/
+.Register_btns {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-align: center;
+}
+
+    .Register_btns button {
+        border: none;
+        padding: 10px;
+        font-size: 20px;
+        font-weight: bold;
+        background-color: dodgerblue;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .Register_btns a {
+        border: none;
+        padding: 10px;
+        font-size: 20px;
+        background-color: yellowgreen;
+        color: white;
+        text-decoration: none;
+        text-align: center;
+        font-weight: bold;
+        border-radius: 5px;
+    }

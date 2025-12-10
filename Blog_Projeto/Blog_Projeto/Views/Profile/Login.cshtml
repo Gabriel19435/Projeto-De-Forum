@@ -1,0 +1,44 @@
+﻿@using Blog_Projeto.Models.dto
+@model Blog_Projeto.Models.dto.DadosUser_dto
+@{
+    ViewData["Title"] = "Login Page";
+	Layout = "_LayoutLogin";
+}
+
+<link href="~/css/Account/Login.css" rel="stylesheet" />
+
+<div class="center">
+    @if (ViewData["Erro"] != null) 
+    {
+    <div style="margin:10px auto 10px auto; text-align:center; background-color:red; padding:20px; width:100%; max-width:500px;">
+        <p style="color:white;">@ViewData["Erro"]</p>
+    </div>
+    }
+
+    <nav class="Login_Nav">
+        <div class="Site_Logo">
+            <a asp-controller="Home" asp-action="Index">
+                <p>Forum</p>
+                <p>-</p>
+                <P>Descrition</p>
+            </a>
+        </div>
+
+        <form asp-action="Login" class="Login_Back" method="post">
+            <div class="Login_Input">
+                <input type="text" placeholder="Email" asp-for="Email" />
+                <input id="Password" type="text" placeholder="Password" asp-for="Password" />
+                <input id="Confirm" type="text" placeholder="Password Confirm" asp-for="PasswordConfirm" />
+            </div>
+            <div class="Login_btns">
+                <button type="submit">Login</button>
+                <a asp-controller="Profile" asp-action="Register">Create Account</a>
+            </div>
+            <div class="Login_Forget">
+                <a href="#">Forgot Password</a>
+            </div>
+        </form>
+    </nav>
+</div>
+
+<script src="~/js/Account/Login/PasswordCheck.js"></script>

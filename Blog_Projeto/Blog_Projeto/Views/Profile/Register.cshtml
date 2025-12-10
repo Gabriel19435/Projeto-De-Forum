@@ -1,0 +1,40 @@
+﻿@using Blog_Projeto.Models.dto
+@model Blog_Projeto.Models.dto.DadosUser_dto
+@{
+    ViewData["Title"] = "Register Page";
+	Layout = "_LayoutLogin";
+}
+
+<link href="~/css/Account/Register.css" rel="stylesheet" />
+
+@if (ViewData["Erro"] != null) 
+    {
+    <div style="margin:10px auto 0px auto; text-align:center; background-color:red; padding:20px; width:100%; max-width:500px;">
+        <p style="color:white;">@ViewData["Erro"]</p>
+    </div>
+    }
+
+<nav class="Register_Nav">
+    <div class="Site_Logo">
+        <a asp-controller="Home" asp-action="Index">
+            <p>Forum</p>
+            <p>-</p>
+            <P>Descrition</p>
+        </a>
+    </div>
+
+    <form class="Register_Back" asp-action="Register" method="post" enctype="multipart/form-data">
+        <div class="Register_Input">
+            <input type="text" placeholder="Name" asp-for="Name" autocomplete="off" />
+            <input type="text" placeholder="Email" asp-for="Email" autocomplete="off" />
+            <input id="Password" type="text" placeholder="Password" asp-for="Password" autocomplete="off" />
+            <input id="Confirm" type="text" placeholder="PasswordComfirm" asp-for="PasswordConfirm" autocomplete="off" />
+        </div>
+        <div class="Register_btns">
+            <button type="submit">Create</button>
+            <a asp-controller="Profile" asp-action="Login">Login Instead ></a>
+        </div>
+    </form>
+</nav>
+
+<script src="~/js/Account/Register/PasswordCheck.js"></script>

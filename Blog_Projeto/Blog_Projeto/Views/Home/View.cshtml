@@ -1,0 +1,49 @@
+﻿@using Blog_Projeto.Models.dto
+@model CompletePost_dto
+
+@{
+    ViewData["Title"] = "View Post";
+    if (!User.Identity.IsAuthenticated)
+    {
+        Layout = "_LayoutNotLoged";
+    }
+}
+
+<link href="~/css/Home/View.css" rel="stylesheet" />
+
+<div class="Post_Card">
+    <div class="User_Info">
+        <a asp-controller="Profile" asp-action="UserPage" asp-route-Owner="@Model.PostOwner" class="UserPageInfo">
+            <img src="@Model.UserPhoto" alt="Foto do Autor" />
+            <h3>@Model.UserName</h3>
+        </a>
+        <p>@Model.Data.ToString("dd/MM/yyyy")</p>
+        @if (User.Identity.IsAuthenticated && Convert.ToInt32(User.FindFirst("ProfileIdentificator").Value) == Model.PostOwner)
+        {
+            <button class="more-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+                <div class="hid_menu">
+                    <a asp-action="Editar" asp-controller="Home" asp-route-id="@Model.Id">Editar</a>
+                    <a asp-action="Deletar" asp-controller="Home" asp-route-id="@Model.Id">Deletar</a>
+                </div>
+            </button>
+        }
+    </div>
+    <div class="Text_Info">
+        <h3>@Model.Titulo</h3>
+        <p>@Model.Descriçao</p>
+    </div>
+    @if (Model.Foto == "deleted")
+    {
+    }
+    else
+    {
+        <div class="Img_Info">
+            <img src="@Model.Foto" />
+        </div>
+    }
+</div>
+
+<script src="~/js/Account/View/View_Dropdow.js"></script>

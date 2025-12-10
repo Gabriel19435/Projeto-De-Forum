@@ -1,0 +1,30 @@
+﻿@model DadosUser
+@using System.Security.Claims
+@{
+	ViewData["Title"] = "Delete User";
+}
+
+@if (ViewData != null)
+{
+	<div>
+		<p>@ViewData["Erro"]</p>
+	</div>
+}
+
+<form asp-action="Remove" method="post" enctype="multipart/form-data">
+	<div>
+		<h3>Sure You Want To Delete This Profile?</h3>
+		<div style="display:flex; flex-direction:column; max-width:300px; align-items:center; background-color:ghostwhite; padding:10px; border-radius:10px; gap:10px;">
+			<div style="display:flex; align-items:center; gap:10px;">
+				<img style="width:80px; height:80px; border-radius:50%;" src="@User.FindFirst("ProfilePhoto").Value" />
+				<h3 style="margin:0;">@User.Identity.Name</h3>
+			</div>
+			<div style="display:flex; flex-direction:column; align-items:center;">
+				<p style="margin:0;">email: @User.FindFirst(ClaimTypes.Email).Value</p>
+				<p style="margin:0;">id: @User.FindFirst("ProfileIdentificator").Value.ToString()</p>
+			</div>
+			<input type="hidden" name="id" value="@Model.Id" />
+			<button style="width:100%;" type="submit">Delete</button>
+		</div>
+	</div>
+</form>

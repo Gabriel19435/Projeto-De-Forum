@@ -1,0 +1,67 @@
+﻿@model DadosUser
+@{
+	ViewData["Title"] = "Profile Configurations";
+}
+
+@if (ViewData["Erro"] != null)
+{
+	<div style="margin:10px auto 10px auto; text-align:center; background-color:red; padding:20px; width:100%; max-width:500px;">
+		<p style="color:white;">@ViewData["Erro"]</p>
+	</div>
+}
+
+<link href="~/css/Account/ProfileConfig.css" rel="stylesheet" />
+
+<div class="Profile_User">
+    <h3>Update User Info</h3>
+    <button class="ProfileExtra_Btn" id="Profile_Info">
+        <img src="@User.FindFirst("ProfilePhoto").Value" alt="Foto do Autor" />
+        <span>@User.Identity.Name</span>
+    </button>
+    <button class="ProfileExtra_Btn">Name</button>
+    <button class="ProfileExtra_Btn">Descrition</button>
+</div>
+
+<form asp-action="ProfileConfig" method="post" enctype="multipart/form-data" id="overlayer">
+    <!--Photo-->
+    <div class="Profile_Options">
+        <div class="Profile_Options_Logo">
+            <label for="">Photo</label>
+            <button type="button" class="ProfileExtra_closeBtn">X</button>
+        </div>
+        <div id="Profile_Info" style="justify-content: center;">
+            <img style="height:200px; width: 200px;" src="@User.FindFirst("ProfilePhoto").Value" alt="Foto do Autor" />
+        </div>
+        <div class="Profile_Options_Btns">
+            <input id="DeleteImgInput" type="hidden" name="deleted" value="deleted" disabled />
+            <button id="DeleteImgBtn" type="submit" style="background-color: rgb(230, 0, 0);">Remove</button>
+            <input id="FileUpload" type="file" asp-for="Photo" style="background-color: #4D79FF; color: white;" />
+        </div>
+    </div>
+    <!--Name-->
+    <div class="Profile_Options">
+        <div class="Profile_Options_Logo">
+            <label for="">Name</label>
+            <button type="button" class="ProfileExtra_closeBtn">X</button>
+        </div>
+        <div class="Profile_Options_Btns">
+            <input type="text" asp-for="Name" placeholder="Name" autocomplete="off" />
+            <button type="submit">Save</button>
+        </div>
+    </div>
+    <!--Descrition-->
+    <div class="Profile_Options">
+        <div class="Profile_Options_Logo">
+            <label for="">Descrition</label>
+            <button type="button" class="ProfileExtra_closeBtn">X</button>
+        </div>
+        <div class="Profile_Options_Btns">
+            <input type="text" asp-for="Descrition" placeholder="Email" autocomplete="off" />
+            <button type="submit">Save</button>
+        </div>
+    </div>
+</form>
+
+<script src="~/js/Account/ProfileConfig/ImgUpload.js"></script>
+<script src="~/js/Account/ProfileConfig/Menu.js"></script>
+<script src="~/js/Account/ProfileConfig/ImgDelete.js"></script>
