@@ -4,6 +4,7 @@ Projeto De Forum (ASP.NET Core 8 + EF Core 9)
 Este e meu primeiro projeto desenvolvido com ASP.NET Core 8, ele utiliza Entity Framework Core 9, SQL Server, e arquitetura organizada com injeção de dependência, services, repositories e migrations.
 O Projeto permite gerenciamento de usuários, posts e imagens,
 
+
 🛠️ Tecnologias Utilizadas
 
 ASP.NET Core 8
@@ -11,6 +12,7 @@ ASP.NET Core 8
 Entity Framework Core 9
 
 SQL Server
+
 
 📂 Estrutura da Solução
 Blog_Projeto/
@@ -60,6 +62,7 @@ No arquivo appsettings.json adicione sua connection string:
   
 }
 
+
 🗄️ Migrations
 
 ✔️ Criar migration
@@ -93,6 +96,7 @@ wwwroot/PostImg/
 wwwroot/ProfileImages/UserPic/
 
 Essas pastas já estão incluídas no projeto.
+
 
 🤝 Contribuindo
 
