@@ -51,9 +51,21 @@ jobs:
     # Decodificar o arquivo pfx e salvar o certificado
     - name: Decode the pfx
       run: |
+        # Decodificar a string Base64 do segredo e converter em bytes
         $pfx_cert_byte = [System.Convert]::FromBase64String("${{ secrets.Base64_Encoded_Pfx }}")
-        $certificatePath = Join-Path -Path $env:Wap_Project_Directory -ChildPath GitHubActionsWorkflow.pfx
-        [IO.File]::WriteAllBytes("$certificatePath", $pfx_cert_byte)
+        
+        # Definir o caminho onde o pfx será salvo
+        $certificatePath = Join-Path -Path $env:Wap_Project_Directory -ChildPath "GitHubActionsWorkflow.pfx"
+        
+        # Garantir que o diretório existe
+        $directoryPath = [System.IO.Path]::GetDirectoryName($certificatePath)
+        if (-not (Test-Path -Path $directoryPath)) {
+            Write-Host "Diretório não existe. Criando diretório: $directoryPath"
+            New-Item -ItemType Directory -Force -Path $directoryPath
+        }
+
+        # Salvar o certificado no diretório
+        [IO.File]::WriteAllBytes($certificatePath, $pfx_cert_byte)
 
     # Criar o pacote da aplicação
     - name: Create the app package
