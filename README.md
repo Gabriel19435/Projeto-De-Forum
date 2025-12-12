@@ -69,13 +69,17 @@ No arquivo appsettings.json adicione sua connection string:
 ✔️ Criar migration
 
 dotnet ef migrations add InitialCreate
+
 ou
+
 add-migration Initial
 
 ✔️ Update do banco
 
 dotnet ef database update
+
 ou 
+
 update-database
 
 
