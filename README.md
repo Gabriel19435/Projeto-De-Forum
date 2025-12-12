@@ -57,8 +57,7 @@ Blog_Projeto/
 
 No arquivo appsettings.json adicione sua connection string:
 
-"ConnectionStrings": 
-{
+"ConnectionStrings": {
 
   "DefaultConnection": "Server=SEU_SERVIDOR;Database=BlogProject;Trusted_Connection=True;TrustServerCertificate=True"
   
