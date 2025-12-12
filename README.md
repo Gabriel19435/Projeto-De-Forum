@@ -69,23 +69,14 @@ No arquivo appsettings.json adicione sua connection string:
 ✔️ Criar migration
 
 dotnet ef migrations add InitialCreate
+ou
+add-migration Initial
 
 ✔️ Update do banco
 
 dotnet ef database update
-
-
-**As migrations já estão incluídas no repositório para facilitar a reprodução do ambiente.**
-
-▶️ Como executar o projeto
-
-1. Restaurar dependências
-
-2. dotnet restore
-
-3. Rodar o projeto
-
-4. dotnet run
+ou 
+update-database
 
 
 🖼️ Pastas de Imagens dos Posts - Usuarios
