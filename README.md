@@ -70,8 +70,6 @@ No arquivo appsettings.json adicione sua connection string:
 
 dotnet ef migrations add InitialCreate
 
-ou
-
 ✔️ Update do banco
 
 dotnet ef database update
